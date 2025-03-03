@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #FF4B4B;
+    --dark-color: #1a1a1a;
+    --light-color: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    overflow-x: hidden;
+}
+
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 100vh;
+    padding: 80px 0;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    padding: 12px 28px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #ffd900;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    border-width: 2px;
+    font-weight: 600;
+    padding: 12px 28px;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hero-image {
+    position: relative;
+    transform: perspective(1000px) rotateY(-15deg);
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: perspective(1000px) rotateY(-5deg);
+}
+
+.hero-image img {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+}
+
+.wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .hero-section {
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        padding: 30px 0;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px 24px;
+        font-size: 1rem;
+    }
+}
