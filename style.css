@@ -1,31 +1,39 @@
 :root {
     --primary-color: #FFD700;
-    --secondary-color: #FF4B4B;
-    --dark-color: #1a1a1a;
-    --light-color: #ffffff;
+    --background-color: #000000;
+    --card-color: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent-color: #FF4B4B;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--background-color);
+    color: var(--text-primary);
     overflow-x: hidden;
 }
 
 .hero-section {
     position: relative;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     min-height: 100vh;
-    padding: 80px 0;
+    background: linear-gradient(145deg, var(--card-color), #242424);
 }
 
 .logo {
     max-width: 200px;
     height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .text-gradient {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -34,45 +42,44 @@ body {
 .lead {
     font-size: 1.1rem;
     line-height: 1.6;
-    opacity: 0.9;
+    color: var(--text-secondary);
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
     background: var(--primary-color);
     border: none;
-    color: var(--dark-color);
-    font-weight: 600;
-    padding: 12px 28px;
-    transition: all 0.3s ease;
+    color: var(--background-color);
 }
 
 .btn-primary:hover {
-    background: #ffd900;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    background: var(--primary-color);
+    color: var(--background-color);
 }
 
 .btn-outline-light {
-    border-width: 2px;
-    font-weight: 600;
-    padding: 12px 28px;
+    border: 2px solid var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.hero-image {
-    position: relative;
-    transform: perspective(1000px) rotateY(-15deg);
-    transition: transform 0.3s ease;
-}
-
-.hero-image:hover {
-    transform: perspective(1000px) rotateY(-5deg);
-}
-
-.hero-image img {
-    border: 4px solid rgba(255, 255, 255, 0.1);
+    background: var(--text-secondary);
+    color: var(--background-color);
+    border-color: var(--text-secondary);
 }
 
 .wave-bottom {
@@ -83,49 +90,117 @@ body {
     line-height: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 991.98px) {
-    .hero-section {
-        padding: 40px 0;
-        text-align: center;
-    }
+.wave-bottom svg {
+    width: 100%;
+    height: 70px;
+}
 
+.wave-bottom svg path {
+    fill: var(--background-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .logo {
         max-width: 150px;
     }
-
-    .display-4 {
-        font-size: 2.5rem;
+    
+    .display-5 {
+        font-size: 2rem;
     }
-
+    
     .lead {
         font-size: 1rem;
     }
-
-    .cta-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-
+    
     .btn {
         width: 100%;
-        max-width: 300px;
+        margin: 0.5rem 0;
+    }
+    
+    .wave-bottom svg {
+        height: 50px;
     }
 }
 
-@media (max-width: 575.98px) {
-    .hero-section {
-        padding: 30px 0;
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo {
+        max-width: 180px;
     }
+}
 
-    .display-4 {
-        font-size: 2rem;
+.countdown-container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.countdown-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.countdown-title {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.countdown-timer {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: #FFD700;
+}
+
+.countdown-digit {
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin: 0 0.2rem;
+}
+
+.countdown-text {
+    color: #aaa;
+    margin-top: 1rem;
+}
+
+.countdown-status {
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.loading-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.loading-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FFD700;
+    animation: pulse 1.4s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+    0%, 80%, 100% { 
+        transform: scale(0.6);
+        opacity: 0.5;
     }
-
-    .btn {
-        padding: 10px 24px;
-        font-size: 1rem;
+    40% {
+        transform: scale(1);
+        opacity: 1;
     }
 }
