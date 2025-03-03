@@ -57,8 +57,8 @@
 
 ## 📞 Kontak
 
-[![Discord](https://img.shields.io/badge/Discord-SPJ48TV-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/spj48tv)
-[![Telegram](https://img.shields.io/badge/Telegram-SPJ48TV-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/spj48tv)
+[![Discord](https://img.shields.io/badge/Discord-SPJ48TV-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/TGNrk6zhV3)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-SPJ48TV-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/+6285175334216)
 
 ## 📄 Lisensi
 
@@ -66,5 +66,5 @@ MIT License - Lihat [LICENSE](LICENSE) untuk detail lebih lanjut.
 
 ---
 
-🔄 **Last Updated**: Oktober 2023  
-© 2023 SPJ48TV - Made with ❤️ for JKT48 Fans
+🔄 **Last Updated**: February 2025  
+© 2025 SPJ48TV - Made with ❤️ for JKT48 Fans
