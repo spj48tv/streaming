@@ -1,0 +1,339 @@
+:root {
+    --primary-color: #FFD700;
+    --background-color: #000000;
+    --card-color: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent-color: #FF4B4B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Token Container */
+.token-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-color);
+}
+
+.container {
+    background: linear-gradient(145deg, var(--card-color), #242424);
+    padding: 2rem;
+    border-radius: 1.25rem;
+    text-align: center;
+    width: min(90%, 400px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stream Container */
+.stream-container {
+    flex: 1;
+    padding: clamp(1rem, 3vw, 2rem);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.stream-container.visible {
+    opacity: 1;
+}
+
+.player-wrapper {
+    aspect-ratio: 16/9;
+    background: var(--card-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.stream-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--card-color);
+    border-radius: 0.75rem;
+}
+
+/* Loading Elements */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: var(--primary-color) #0000;
+    animation: l1 1s infinite;
+    margin: 20px auto;
+}
+
+@keyframes l1 {
+    to { transform: rotate(.5turn) }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+}
+
+.loading-overlay .loading-content > * {
+    margin-bottom: 1.5rem;
+}
+
+.loading-overlay .loading-content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Plyr Custom Styles */
+.plyr--video {
+    border-radius: 0.75rem;
+    --plyr-color-main: var(--primary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .stream-container {
+        padding: 0.75rem;
+    }
+    
+    .stream-info {
+        margin-top: 0.75rem;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .player-wrapper {
+        max-height: 80vh;
+    }
+}
+
+/* Error States */
+.error-container {
+    border: 2px solid #ff4444;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: rgba(255, 68, 68, 0.1);
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ff4444;
+}
+
+.error-message {
+    color: #ff4444;
+    margin-bottom: 0.5rem;
+}
+
+.error-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.waiting-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.show-details {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+}
+
+.show-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.show-time {
+    color: var(--text-secondary);
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.waiting-lineup {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lineup-count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.lineup-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.preview-member-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.more-members {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.waiting-message {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Lineup Styles - Simplified */
+.lineup-section {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--card-color);
+    border-radius: 0.75rem;
+}
+
+.lineup-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.75rem;
+    justify-items: center;
+}
+
+.member-card {
+    width: 100%;
+    max-width: 70px;
+    text-align: center;
+}
+
+.member-image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.25rem;
+}
+
+.member-name {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .lineup-section {
+        padding: 0.75rem;
+    }
+    
+    .lineup-grid {
+        gap: 0.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+    
+    .member-card {
+        max-width: 60px;
+    }
+    
+    .member-name {
+        font-size: 0.7rem;
+    }
+}
