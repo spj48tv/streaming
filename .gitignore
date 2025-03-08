@@ -2,3 +2,5 @@ player/obfuscator-config.json
 player/main2.js
 player/main.js
 example
+build/
+config/
